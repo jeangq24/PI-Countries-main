@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Grechen+Fuemen&display=swap');
+
+#homeCard{
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(134, 39, 1, 0.623);
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 20px 0px 20px;
+    box-shadow: 0px 0px 3px 2px  rgba(255, 255, 255, 0.616);
+    text-align: center;
+}
+#homeCard:hover{
+    background-color: transparent;
+    box-shadow: 0px 0px 3px 2px  rgb(255, 255, 255);
+}
+
+#nombrePais{
+    color: rgb(255, 255, 255);
+    font-size: 21px;
+    font-family: 'Grechen Fuemen', cursive;
+    -webkit-text-stroke: 0.3px #ffffff;
+}
+#nombrePais:hover{
+    color: rgb(0, 0, 0);
+    -webkit-text-stroke: 0.3px #a5a5a5;
+}
+#continente{
+    color: rgb(255, 255, 255);
+    font-size: 22px;
+    font-family: 'Grechen Fuemen', cursive;
+    -webkit-text-stroke: 0.3px #ffffff;
+}
+#continente:hover{
+    color: rgb(0, 0, 0);
+    -webkit-text-stroke: 0.3px #a5a5a5;
+}
+
+#filtro{
+    box-sizing: border-box;
+    display: flex;
+    width: 250px;
+    height: 130px;
+    margin: 11px 30px;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    
+  }

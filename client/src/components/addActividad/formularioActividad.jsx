@@ -2,6 +2,7 @@ import React, { useState, useEffect} from "react";
 import { connect } from "react-redux";
 import {getListaPaisesFormulario, resetPaisesFormulario, getListaPaisDetalladoConActividades} from "../../actions/index.js";
 import PaisesParaFormulario from "./paisesParaFormulario.jsx";
+import "./style/formulario.css";
 
 const FormularioActividad = ({getListaPaisesFormulario, paisesFormulario, resetPaisesFormulario, setValorInput,
      paisesConActividades, getListaPaisDetalladoConActividades}) => {
@@ -28,11 +29,16 @@ const FormularioActividad = ({getListaPaisesFormulario, paisesFormulario, resetP
             setValorNombre({nombre: null, error: "Campo requerido"})
         };
         if(value.length>0){
-            if(/\W/.test(value)){
-                setValorNombre({nombre: value, error: "No debe contener caracteres especiales"}) 
+            
+            if(value[0].includes(" ")){
+                setValorNombre({nombre: value, error: "No debe contener espacions al inicio"})
+            }else if(/\W/.test(value.replace(/\s/g, "_"))){
+                setValorNombre({nombre: value, error: "No debe contener caracteres especiales"})          
+           
             }else if(/\d/.test(value)){
                 setValorNombre({nombre: value, error: "No debe contener numeros"})
             }else {
+                
                 setValorNombre({nombre: value, error: null}) 
             }
         }
@@ -58,7 +64,14 @@ const FormularioActividad = ({getListaPaisesFormulario, paisesFormulario, resetP
             if(/^[0-9]*$/.test(value)){
                 setValorDuracion({...valorDuracion, duracion: value, error: null})
             }else if(value.length>0){
-                setValorDuracion({...valorDuracion, duracion: value, error: "Digite cantidad valida"})
+                if(value[0].includes(" ")){
+                    setValorDuracion({...valorDuracion, duracion: value, error: "No se permite espacios al inicio"})    
+                }else if(value.includes(" ")){
+                    setValorDuracion({...valorDuracion, duracion: value, error: "No se permite espacios"}) 
+                }else{
+                    setValorDuracion({...valorDuracion, duracion: value, error: "Digite cantidad valida"})
+
+                }
             }           
         }
     }
@@ -168,71 +181,91 @@ const FormularioActividad = ({getListaPaisesFormulario, paisesFormulario, resetP
 
     return (
         <div id="formularioActividad">
-            {!validacion.acces?<><label>Nombre</label>
-            <input type="text" placeholder="Visita al museo"  value={valorNombre.nombre} onChange={(e)=>{handleNombre(e)}}/>
-            {valorNombre.error && <span>{valorNombre.error}</span>}
-            <label>Dificultad</label>
-            <select>
-                <optgroup label="Dificultal">
-                    <option onClick={(e)=>{handleDificultad(e)}} value={"1"}>Tranquila</option>
-                    <option onClick={(e)=>{handleDificultad(e)}} value={"2"}>Agotadora</option>
-                    <option onClick={(e)=>{handleDificultad(e)}} value={"3"}>Agitada</option>
-                    <option onClick={(e)=>{handleDificultad(e)}} value={"4"}>Dificil</option>
-                    <option onClick={(e)=>{handleDificultad(e)}} value={"5"}>Extrema</option>  
-                </optgroup>
-            </select>
-            {valorDificultad.error && <p>{valorDificultad.error}</p>}
+            {!validacion.acces?<>
+            <div id="nombre">
+                <label >Nombre</label>
+                <input className={valorNombre.error?"inputFormularioError":"inputFormulario"} type="text" placeholder="Visita al museo"  value={valorNombre.nombre} onChange={(e)=>{handleNombre(e)}}/>
+            </div>
+            {valorNombre.error && <p className="pError">{valorNombre.error}</p>}
 
-            <label value="0">Temporada</label>
-            <select>
-            <optgroup label="Temporada">
-                <option value="Verano" onClick={(e) => handleTemporada(e)}>Verano</option>
-                <option value="Invierno" onClick={(e) => handleTemporada(e)}> Invierno</option>
-                <option value="Otoño" onClick={(e) => handleTemporada(e)}>Otoño</option>
-                <option value="Primavera" onClick={(e) => handleTemporada(e)}>Primavera</option>
-            </optgroup>
-            {valorTemporada.error && <p>{valorTemporada.error}</p>}
-            </select>
-            <label>Duracion</label>
-            <input placeholder="10..." value={valorDuracion.duracion} onChange={(e) => {handleDuracion(e)}} />
-            <select>
-                <option value="Hora(s)" onClick={(e) => handleMedida(e)}>Horas</option>
-                <option value="Minuto(s)" onClick={(e) => handleMedida(e)}>Minutos</option>
-            </select>
-            {valorDuracion.error && <p>{valorDuracion.error}</p>}
+            <div id="dificultad">
+                <label >Dificultad</label>
+                <select className="selectFormulario">
+                    <optgroup className="optionFormulario" label="Dificultal">
+                        <option className="optionFormulario" onClick={(e)=>{handleDificultad(e)}} value={"1"}>Tranquila</option>
+                        <option className="optionFormulario" onClick={(e)=>{handleDificultad(e)}} value={"2"}>Agotadora</option>
+                        <option className="optionFormulario" onClick={(e)=>{handleDificultad(e)}} value={"3"}>Agitada</option>
+                        <option className="optionFormulario" onClick={(e)=>{handleDificultad(e)}} value={"4"}>Dificil</option>
+                        <option className="optionFormulario" onClick={(e)=>{handleDificultad(e)}} value={"5"}>Extrema</option>  
+                    </optgroup>
+                </select>
+            </div>
+            {valorDificultad.error && <p className="pError">{valorDificultad.error}</p>}
+
+            <div id="temporada">
+                <label value="0">Temporada</label>
+                <select className="selectFormulario">
+                <optgroup className="optionFormulario" label="Temporada">
+                    <option className="optionFormulario" value="Verano" onClick={(e) => handleTemporada(e)}>Verano</option>
+                    <option className="optionFormulario" value="Invierno" onClick={(e) => handleTemporada(e)}> Invierno</option>
+                    <option className="optionFormulario" value="Otoño" onClick={(e) => handleTemporada(e)}>Otoño</option>
+                    <option className="optionFormulario" value="Primavera" onClick={(e) => handleTemporada(e)}>Primavera</option>
+                </optgroup>
+                </select>
+            </div>
+            {valorTemporada.error && <p className="pError">{valorTemporada.error}</p>}
+            
+            <div id="duracion">
+                <label>Duracion</label>
+                <input className={valorDuracion.error?"inputFormularioError":"inputFormulario"} placeholder="10..." value={valorDuracion.duracion} onChange={(e) => {handleDuracion(e)}} />
+                <select className="selectFormulario">
+                    <option className="optionFormulario" value="Hora(s)" onClick={(e) => handleMedida(e)}>Horas</option>
+                    <option className="optionFormulario" value="Minuto(s)" onClick={(e) => handleMedida(e)}>Minutos</option>
+                </select>
+            </div>
+            {valorDuracion.error && <p className="pError">{valorDuracion.error}</p>}
 
             <div id="agregarPais">
                 <label>Busca un pais</label>
-                <input placeholder="Colombia" value={valorInput} onChange={(e)=>{handleChange(e)}}/>
+                <input className={valorPaises.error?"inputFormularioError":"inputFormulario"} placeholder="Colombia" value={valorInput} onChange={(e)=>{handleChange(e)}}/>
+            </div>
+            {valorPaises.error && <p className="pError">{valorPaises.error}</p>}
+            <div id="contenedorPaisesAgregados">
 
-                {valorPaises.error && <p>{valorPaises.error}</p>}
                 <div id="paisesAgregados">
                     {paisesFormulario?.map(({id, nombre, img}) => {
-                        return (
-                            <PaisesParaFormulario
-                            key={id} id={id} nombre={nombre} img={img} setValorPaises={setValorPaises} valorPaises={valorPaises}
-                            getListaPaisDetalladoConActividades={getListaPaisDetalladoConActividades} />
-                        )
+                            return (
+                                <PaisesParaFormulario
+                                key={id} id={id} nombre={nombre} img={img} setValorPaises={setValorPaises} valorPaises={valorPaises}
+                                getListaPaisDetalladoConActividades={getListaPaisDetalladoConActividades} />
+                            )
+                        })}
+                </div>
+                
+                <div id="paisesAgregados">
+                    {valorPaises.paises?.map(({id, img})=>{
+                        return(
+                            <div onClick={(e) => handleEliminarPaises(e)} id={id} key={id} className="paisesFormulario2" style={{backgroundImage: `url("${img}")`}}>
+                                <div id="filtroPaisesFormulario2">
+                                    <h6>{id}</h6>
+                                </div>
+                                
+                            </div>
+                        )    
                     })}
                 </div>
             </div>
-            <div>
-                {valorPaises.paises?.map(({id, img})=>{
-                    return(
-                        <div onClick={(e) => handleEliminarPaises(e)} id={id} key={id}>
-                         <a>{id}</a>
-                         <img src={img} alt={`bandera de: ${id}`} height="50px" width="50px"/>        
-                        </div>
-                    )    
-                })}
+            <div id="contenedorbtn1formuario">
+                <button className="selectFormulario" onClick={() => regresarHome()}>Regresar</button>
+                <button className="selectFormulario" onClick={() => {handleValidacion()}}>Agregar Actividad</button>    
             </div>
-            <button onClick={() => regresarHome()}>Regresar</button>
-            <button onClick={() => {handleValidacion()}}>Agregar Actividad</button>    
-            {validacion.error && <p>{validacion.error}</p>}</>
+            {validacion.error && <h1>{validacion.error}</h1>}</>
             :<>
             <h1>ACTIVIDAD AGREGADA CON EXITO</h1>
-            <button type="submit" onClick={() => {handleNuevaActividad()}}>Nueva actividad</button>
-            <button onClick={() => regresarHome()}>Regresar</button>
+            <div id="contenedorbtn2formulario">
+                <button className="selectFormulario" type="submit" onClick={() => {handleNuevaActividad()}}>Nueva actividad</button>
+                <button className="selectFormulario" onClick={() => regresarHome()}>Regresar</button>
+            </div>
             </>}
 
         </div>

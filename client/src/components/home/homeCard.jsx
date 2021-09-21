@@ -2,16 +2,19 @@ import React from "react"
 import {Link} from "react-router-dom";
 import { connect } from "react-redux";
 import {getListaPaisDetallado} from "../../actions/index.js";
-
+import "./style/homeCard.css"
 const HomeCard = ({id, nombre, img, continente, getListaPaisDetallado})=>{
  return (
-    <Link onClick={() => getListaPaisDetallado(id)} to="/detalles">
+    
+    <div id="filtro" style={{backgroundImage: `url("${img}")`, backgroundSize: `cover`, backgroundRepeat: `no-repeat`}}>   
      <div id="homeCard">
-         <h2>{nombre}</h2>
-         <h4>Continente {continente?continente:"No registrado"}</h4>
-         <img src={img} alt={`bandera de: ${nombre}`} height="200px" width="200px"/>
+         <Link onClick={() => getListaPaisDetallado(id)} to="/detalles">
+         <h2 id="nombrePais">{nombre}</h2>
+         <h4 id="continente">Continente {continente?continente:"No registrado"}</h4>
+         </Link>
      </div>
-     </Link>
+     </div>
+     
  )
 }
 

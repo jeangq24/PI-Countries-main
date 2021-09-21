@@ -1,6 +1,6 @@
 import React from "react"
 import {Link} from "react-router-dom";
-
+import "./style/formulario.css"
 const PaisesParaFormulario = ({id, nombre, img, setValorPaises, valorPaises, getListaPaisDetalladoConActividades,}) => {
     const handlePaises = () => {
         if (valorPaises.paises.length===0){
@@ -19,10 +19,10 @@ const PaisesParaFormulario = ({id, nombre, img, setValorPaises, valorPaises, get
         return
     }
     return (
-        <div>
-            <h6>{nombre}</h6>
-            <img src={img} alt={`bandera de: ${nombre}`} height="60px" width="60px"/>
-            <button onClick={() => handlePaises()}>Seleccionar</button>
+        <div className="paisesFormulario" onClick={() => handlePaises()} style={{backgroundImage: `url("${img}")`}}>
+            <div id="filtroPaisesFormulario">
+            <h6>{nombre}</h6>  
+            </div>
         </div>
     )
 }

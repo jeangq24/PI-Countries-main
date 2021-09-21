@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import HomeCard from "./homeCard";
 import {Link} from "react-router-dom";
 import {valorPagina, getPaisesFiltrados, resetPaisesFiltrados, getListaPaises } from "../../actions";
-
+import "./style/home.css"
 const Home = ({paises, valorPagina, paginado, getPaisesFiltrados,
      paisesFiltrados, resetPaisesFiltrados, getListaPaises, setValorInput}) => {
     
@@ -72,9 +72,8 @@ const Home = ({paises, valorPagina, paginado, getPaisesFiltrados,
 
     return (
         <div id="home">
-            <button onClick={() => PaginaAnterior()}>Pagina Anterior</button>
-            
-            <select>
+            <div id="btnsHomeSuperior">
+            <select className="inputHome">
                 <option onClick={()=>limpiarFiltro()} value="dafault" >Filtrar por...</option>
                     <optgroup label="Continente">
                         <option onClick={(e)=>filtradoContinente(e)} value="Africa">Africa</option>
@@ -97,13 +96,14 @@ const Home = ({paises, valorPagina, paginado, getPaisesFiltrados,
                     </optgroup>
 
             </select>
-            <button onClick={() =>limpiarFiltro()}>Quitar Filtro</button>
-            <Link to="addActividad"><button>Crear Actividad</button></Link>
-            <Link to="/actividades"><button>Ver actividad</button></Link>
-            <button onClick={() => window.history.go(-1)}>Cerrar APP</button>
-            <button onClick={() => PaginaSiguiente()}>Pagina Siguiente</button>
+            <button className="btnHome" onClick={() =>limpiarFiltro()}>Quitar Filtro</button>
+            <Link to="addActividad"><button className="btnHome">Crear Actividad</button></Link>
+            <Link to="/actividades"><button className="btnHome">Ver actividad</button></Link>
+            <Link to="/"><button className="btnHome">Cerrar APP</button></Link>
+            </div>
             
-    
+            
+            <div id="paises">
             {!paisesFiltrados[0]?paises[0]?paises.slice(paginado, paginado+9).map(({id,nombre,img,continente}) => {
                 return (
                   
@@ -125,6 +125,11 @@ const Home = ({paises, valorPagina, paginado, getPaisesFiltrados,
                         />
                 )
             }):<h1>No se encontraron resultados</h1>}
+            </div>
+            <div id="btnsHomeInferior">
+            <button className="btnHome" onClick={() => PaginaAnterior()}>Pagina Anterior</button>
+            <button className="btnHome" onClick={() => PaginaSiguiente()}>Pagina Siguiente</button>
+            </div>
         </div>
     )
 }

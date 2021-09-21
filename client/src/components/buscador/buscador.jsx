@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getListaPaises, getListaPaisesBuscador, valorPagina, resetPaisesFiltrados } from "../../actions";
+import "./style/buscador.css";
 
 const Buscador = ({getListaPaises, getListaPaisesBuscador, valorPagina,
      resetPaisesFiltrados, valorInput, setValorInput}) => {
@@ -28,9 +29,9 @@ const Buscador = ({getListaPaises, getListaPaisesBuscador, valorPagina,
     }
 
     return (
-        <form>
-            <input placeholder="Buscar pais" value={valorInput} onChange={(e)=>handleSubmit(e)}/>
-        </form>
+        <div id="buscador">
+            <input id="inputBuscador" placeholder="Buscar pais" value={valorInput} onChange={(e)=>handleSubmit(e)}/>
+        </div>
     )
 }
 

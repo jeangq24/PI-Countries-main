@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { dataDB } from "../../actions/index.js";
+import "./styles/portada.css";
 
 const Portada = ({ dataDB }) => {
   useEffect(() => {
@@ -11,9 +12,9 @@ const Portada = ({ dataDB }) => {
 
   return (
     <div id="portada">
-      <h1>Henry Countries</h1>
+      <h1 id="h1Portada">Countries APP</h1>
       <Link to="/home">
-        <button>Ingresar</button>
+        <button id="btnPortada">¡Planear Viaje!</button>
       </Link>
     </div>
   );

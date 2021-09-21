@@ -1,6 +1,8 @@
 import React from "react";
+import {Link} from "react-router-dom";
+import "./style/actividades.css";
 
-const ActividadesCard = ({nombre, dificultad, duracion, temporada, countries, medida}) => {
+const ActividadesCard = ({nombre, dificultad, duracion, temporada, countries, medida, getListaPaisDetallado}) => {
 
     let X=""
     switch (dificultad) {
@@ -23,16 +25,20 @@ const ActividadesCard = ({nombre, dificultad, duracion, temporada, countries, me
             break;
     }
     return (
-        <div>         
-            <h4>{nombre}</h4>
-            <h6>{"Tiempo estimado: "+duracion+" "+medida}</h6>
-            <h6>{"Dificultad: "+X}</h6>
-            <h6>{"Temporada: "+temporada}</h6>
-            <div>{countries.map(({id, nombre, img}) => {
-                return <div key={id}>
-                    <h6>{nombre}</h6>
-                    <img src={img} alt={`bandera de: ${nombre}`} height="30px" width="30px"/>
+        <div id="actividadIndividual">         
+            <h4 className="hCuatroActividades">{nombre}</h4>
+            <h6 className="hSeisActividades">{"Tiempo estimado: "+duracion+" "+medida}</h6>
+            <h6 className="hSeisActividades">{"Dificultad: "+X}</h6>
+            <h6 className="hSeisActividades">{"Temporada: "+temporada}</h6>
+            <div id="paisesActividades">{countries.map(({id, nombre, img}) => {
+                return <Link to="/detalles" onClick={()=>getListaPaisDetallado(id)}><div key={id}>
+                    
+                    <div id="imgActividades" style={{backgroundImage: `url("${img}")`}}>
+                        <div id="filtroImgActividades"></div>
+                        
+                    </div>
                 </div>
+                </Link>
             })}</div>
         </div>
         

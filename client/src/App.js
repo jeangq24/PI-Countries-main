@@ -30,7 +30,7 @@ function App() {
       </Route>
 
       <Route exact path="/actividades">
-        <Actividades/>
+        <Actividades valorInput={valorInput} setValorInput={setValorInput}/>
       </Route>
     </>
   );
