@@ -182,6 +182,7 @@ const FormularioActividad = ({getListaPaisesFormulario, paisesFormulario, resetP
     return (
         <div id="formularioActividad">
             {!validacion.acces?<>
+            <div id="contenedorFormulaio"> 
             <div id="nombre">
                 <label >Nombre</label>
                 <input className={valorNombre.error?"inputFormularioError":"inputFormulario"} type="text" placeholder="Visita al museo"  value={valorNombre.nombre} onChange={(e)=>{handleNombre(e)}}/>
@@ -230,6 +231,7 @@ const FormularioActividad = ({getListaPaisesFormulario, paisesFormulario, resetP
                 <input className={valorPaises.error?"inputFormularioError":"inputFormulario"} placeholder="Colombia" value={valorInput} onChange={(e)=>{handleChange(e)}}/>
             </div>
             {valorPaises.error && <p className="pError">{valorPaises.error}</p>}
+            </div>
             <div id="contenedorPaisesAgregados">
 
                 <div id="paisesAgregados">

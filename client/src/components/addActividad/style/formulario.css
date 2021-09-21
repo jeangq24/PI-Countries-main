@@ -168,22 +168,37 @@ label{
 
 #nombre{
     margin: 20px 0px 10px 0px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
 }
 
 #dificultad{
     margin: 10px 0px 10px 0px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
 }
 
 #temporada{
     margin: 10px 0px 10px 0px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
 }
 
 #duracion{
     margin: 10px 0px 10px 0px;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
 }
 
 #agregarPais{
     margin: 10px 0px 20px 0px;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
 }
 
 #contenedorbtn1formuario{
@@ -214,4 +229,13 @@ label{
     display: flex;
     width: 100%;
     justify-content: space-around;
+}
+
+#contenedorFormulaio{
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
 }
