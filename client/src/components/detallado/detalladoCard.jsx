@@ -14,7 +14,14 @@ const DetalladoCard = ({id, nombre, img, continente, capital, subregion, area, p
 
     useEffect(async ()=>{
          let resp = await axios.get(`https://api.mymappi.com/v2/geocoding/direct?apikey=84a34520-e568-4555-a492-93d3e38a693f&q=${nombre}&layers=country`)
-        setPosition([resp.data.data[0].lat, resp.data.data[0].lon])
+        
+        if(!resp.data.data[0]){
+            let resp2 = await axios.get(`https://api.mymappi.com/v2/geocoding/direct?apikey=84a34520-e568-4555-a492-93d3e38a693f&q=${id}&layers=country`)
+            setPosition([resp2.data.data[0]?resp2.data.data[0].lat:0, resp2.data.data[0]?resp2.data.data[0].lon:0])
+        }else{
+            setPosition([resp.data.data[0].lat, resp.data.data[0].lon])
+        }
+
     }, []) 
     
 
@@ -65,10 +72,10 @@ const DetalladoCard = ({id, nombre, img, continente, capital, subregion, area, p
                 <div id="detalles">
                     <h2 id="hDos">{nombre}</h2>
                     <div id="imgDetalles" style={{backgroundImage: `url("${img}")`}}></div>
-                    <h4 id="hCuatro">Continente {continente?continente:"No registrado"}</h4>
-                    <h4 id="hCuatro">Capital {capital}</h4>
-                    <h5 id="hCinco">Subregion {subregion}</h5>
-                    <h6 id="hSeis">Area de {area.toLocaleString()+" km2"}</h6>
+                    <h4 id="hCuatro">Continente {continente?continente:"No registra"}</h4>
+                    <h4 id="hCuatro">Capital {capital?capital:"No registra"}</h4>
+                    <h5 id="hCinco">Subregion {subregion?subregion:"No registra"}</h5>
+                    <h6 id="hSeis">Area de {area?area.toLocaleString()+" km2":"No registra"}</h6>
                     <h6 id="hSeis">Poblacion de {poblacion.toLocaleString()+" habitantes(Apx)"}</h6>
                     {actividades2[0]?<Link to="/actividades"><div id="contenedorActividades">{actividades2.map(({id, nombre, duracion, dificultad, temporada}, index)=>{
                     console.log(index++)
@@ -86,7 +93,7 @@ const DetalladoCard = ({id, nombre, img, continente, capital, subregion, area, p
                     
                 </div>
                 <div id="maps">
-                    {position[0]!==0?<Map position={position}/>:<h1>Cargando...</h1>}
+                    {position[0]!==0?<Map position={position}/>:<h1>¡Lo siento!, Ubicacion no encontrada.</h1>}
                 </div>
 
             </div>
