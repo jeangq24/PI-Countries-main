@@ -75,24 +75,24 @@ const Home = ({paises, valorPagina, paginado, getPaisesFiltrados,
             <div id="btnsHomeSuperior">
             <select className="inputHome">
                 <option onClick={()=>limpiarFiltro()} value="dafault" >Filtrar por...</option>
-                    <optgroup label="Continente">
-                        <option onClick={(e)=>filtradoContinente(e)} value="Africa">Africa</option>
-                        <option onClick={(e)=>filtradoContinente(e)} value="Americas">Americas</option>
-                        <option onClick={(e)=>filtradoContinente(e)} value="Asia">Asia</option>
-                        <option onClick={(e)=>filtradoContinente(e)} value="Europe">Europe</option>
-                        <option onClick={(e)=>filtradoContinente(e)} value="Oceania">Oceania</option>
-                        <option onClick={(e)=>filtradoContinente(e)} value="Polar">Polar</option>
+                    <optgroup className="optionFormulario" label="Continente">
+                        <option className="optionFormulario" onClick={(e)=>filtradoContinente(e)} value="Africa">Africa</option>
+                        <option className="optionFormulario" onClick={(e)=>filtradoContinente(e)} value="Americas">Americas</option>
+                        <option className="optionFormulario" onClick={(e)=>filtradoContinente(e)} value="Asia">Asia</option>
+                        <option className="optionFormulario" onClick={(e)=>filtradoContinente(e)} value="Europe">Europe</option>
+                        <option className="optionFormulario" onClick={(e)=>filtradoContinente(e)} value="Oceania">Oceania</option>
+                        <option className="optionFormulario" onClick={(e)=>filtradoContinente(e)} value="Polar">Polar</option>
                     </optgroup>
-                    <optgroup label="Poblacion">
-                        <option onClick={(e)=>filtradoPoblacion(e)} value="Mayor">Mayor</option>
-                        <option onClick={(e)=>filtradoPoblacion(e)} value="Menor">Menor</option>
+                    <optgroup className="optionFormulario" label="Poblacion">
+                        <option className="optionFormulario" onClick={(e)=>filtradoPoblacion(e)} value="Mayor">Mayor</option>
+                        <option className="optionFormulario" onClick={(e)=>filtradoPoblacion(e)} value="Menor">Menor</option>
                     </optgroup> 
-                    <optgroup label="Actividades">
-                        <option onClick={()=>handleActividades()}>Con actividades</option>
+                    <optgroup className="optionFormulario" label="Actividades">
+                        <option className="optionFormulario" onClick={()=>handleActividades()}>Con actividades</option>
                     </optgroup>                   
-                    <optgroup label="Orden Alfabetico">
-                        <option onClick={(e)=>filtradoAlfabetico(e)} value="Asc">Ascendente</option>
-                        <option onClick={(e)=>filtradoAlfabetico(e)} value="Desc">Descendente</option>
+                    <optgroup className="optionFormulario" label="Orden Alfabetico">
+                        <option className="optionFormulario" onClick={(e)=>filtradoAlfabetico(e)} value="Asc">Ascendente</option>
+                        <option className="optionFormulario" onClick={(e)=>filtradoAlfabetico(e)} value="Desc">Descendente</option>
                     </optgroup>
 
             </select>

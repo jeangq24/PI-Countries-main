@@ -10,8 +10,7 @@ const initialState = {
 };
 
 function rootReducer(state = initialState, action) {
-  console.log("ENTRO AL REDUCER")
-  console.log(action.payload)
+
   switch (action.type) {
 
     case "dataDB":
@@ -134,9 +133,8 @@ function rootReducer(state = initialState, action) {
           return {
             ...state, paisesConActividades: []
           }
-
-        default:
-          break;
+          default:
+            return state.paisesConActividades
       }
       
     }

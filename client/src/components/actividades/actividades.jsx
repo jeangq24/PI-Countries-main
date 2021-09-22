@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import React, { useEffect} from "react";
 import { connect } from "react-redux";
 import {Link} from "react-router-dom";
@@ -16,7 +17,7 @@ return (
 
     <div id="actividades">
         <div id="contenedorBotonActividades">
-            <Link to="Home"><button id="btnActividades">Home</button></Link>
+            <Link to="Home" onClick={() => {setValorInput("")}}><button id="btnActividades">Home</button></Link>
             <button id="btnActividades" onClick={() => handleHome()}>Ir Atras</button>
         </div>
         

@@ -1,5 +1,5 @@
+/*eslint-disable*/
 import React from "react"
-import {Link} from "react-router-dom";
 import "./style/formulario.css"
 const PaisesParaFormulario = ({id, nombre, img, setValorPaises, valorPaises, getListaPaisDetalladoConActividades,}) => {
     const handlePaises = () => {
