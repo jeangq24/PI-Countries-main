@@ -9,15 +9,15 @@ const country = {
   name: 'Argentina',
 };
 
-describe('Country routes', () => {
+describe('Deberia validad la conexion con la base de datos', () => {
   before(() => conn.authenticate()
   .catch((err) => {
     console.error('Unable to connect to the database:', err);
   }));
   beforeEach(() => Country.sync({ force: true })
-    .then(() => Country.create(pokemon)));
-  describe('GET /countries', () => {
-    it('should get 200', () =>
+    .then(() => Country.findAll()));
+  describe('Deberia devolver 200 al hacer GET /countries', () => {
+    it('espero status 200', () =>
       agent.get('/countries').expect(200)
     );
   });

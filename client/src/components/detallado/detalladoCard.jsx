@@ -13,10 +13,10 @@ const DetalladoCard = ({id, nombre, img, continente, capital, subregion, area, p
     const [position, setPosition]= useState([0, 0])
 
     useEffect(async ()=>{
-         let resp = await axios.get(`https://api.mymappi.com/v2/geocoding/direct?apikey=84a34520-e568-4555-a492-93d3e38a693f&q=${nombre}&layers=country`)
+         let resp = await axios.get(`https://api.mymappi.com/v2/geocoding/direct?apikey=84a34520-e568-4555-a492-93d3e38a693f&q=${nombre}`)
         
         if(!resp.data.data[0]){
-            let resp2 = await axios.get(`https://api.mymappi.com/v2/geocoding/direct?apikey=84a34520-e568-4555-a492-93d3e38a693f&q=${id}&layers=country`)
+            let resp2 = await axios.get(`https://api.mymappi.com/v2/geocoding/direct?apikey=84a34520-e568-4555-a492-93d3e38a693f&q=${id}`)
             setPosition([resp2.data.data[0]?resp2.data.data[0].lat:0, resp2.data.data[0]?resp2.data.data[0].lon:0])
         }else{
             setPosition([resp.data.data[0].lat, resp.data.data[0].lon])
