@@ -14,7 +14,6 @@
     justify-content:center;
     align-items: center;
     width: 65%;
-    height: 100%;
     background-color: rgba(5, 6, 90, 0.680);
     animation: mymoveDetalles 5s infinite;
     box-shadow: 0px 0px 5px 3px  rgba(255, 255, 255, 0.616);
@@ -123,6 +122,7 @@
     display: flex;
     width: 700px;
     justify-content: space-between;
+    margin-bottom: 30px;
 }
 
 #maps{
