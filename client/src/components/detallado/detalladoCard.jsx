@@ -13,6 +13,10 @@ const DetalladoCard = ({id, nombre, img, continente, capital, subregion, area, p
     const [position, setPosition]= useState([0, 0])
 
     useEffect(async ()=>{
+        if(nombre.toLowerCase().includes("venezuela")){
+            let resp = await axios.get(`https://api.mymappi.com/v2/geocoding/direct?apikey=84a34520-e568-4555-a492-93d3e38a693f&q=${nombre}&layers=country`)
+            setPosition([resp.data.data[0].lat, resp.data.data[0].lon])
+        }else{
          let resp = await axios.get(`https://api.mymappi.com/v2/geocoding/direct?apikey=84a34520-e568-4555-a492-93d3e38a693f&q=${nombre}`)
         
         if(!resp.data.data[0]){
@@ -21,6 +25,8 @@ const DetalladoCard = ({id, nombre, img, continente, capital, subregion, area, p
         }else{
             setPosition([resp.data.data[0].lat, resp.data.data[0].lon])
         }
+        }
+
 
     }, []) 
     

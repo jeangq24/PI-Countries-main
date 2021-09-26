@@ -43,18 +43,25 @@ export const dataDB = () => {
     }
   };
 
-  export const getListaPaisDetallado = (pais) => {
-    return  async(dispatch) => {
-      try {
-        let respuesta = await fetch(`http://127.0.0.1:3001/countries/${pais}`);
-        let data = await respuesta.json();
-        return dispatch({type: "GET_LISTA_PAIS_DETALLADO", payload: data});             
-      } catch (error) {
-
-       return error;
+  export const getListaPaisDetallado = (value) => {
+    if(value.caso==="add"){
+      return  async(dispatch) => {
+        try {
+          let respuesta = await fetch(`http://127.0.0.1:3001/countries/${value.value}`);
+          let data = await respuesta.json();
+          return dispatch({type: "GET_LISTA_PAIS_DETALLADO", payload: {caso: "add", data}});             
+        } catch (error) {
+  
+         return error;
+        }
+               
+      };
+    }else {
+      return {
+        type: "GET_LISTA_PAIS_DETALLADO", payload: {caso: "reset", data: value.value}
       }
-             
-    };
+    }
+
   }
 
   export const resetPaisesFiltrados = () => {

@@ -260,7 +260,11 @@ const FormularioActividad = ({getListaPaisesFormulario, paisesFormulario, resetP
             </div>
             <div id="contenedorbtn1formuario">
                 <button className="selectFormulario" onClick={() => regresarHome()}>Regresar</button>
-                <button className="selectFormulario" onClick={() => {handleValidacion()}}>Agregar Actividad</button>    
+                {valorNombre.error!==null || valorDuracion.error!==null  ?
+                <button className="selectFormularioD" >Agregar Actividad</button>:
+                <button className="selectFormulario" onClick={() => {handleValidacion()}}>Agregar Actividad</button> 
+                }
+                   
             </div>
             {validacion.error && <h1>{validacion.error}</h1>}</>
             :<>

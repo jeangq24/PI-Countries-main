@@ -21,7 +21,12 @@ function rootReducer(state = initialState, action) {
       return { ...state, paises: action.payload };
 
     case "GET_LISTA_PAIS_DETALLADO":
-      return { ...state, paisDetallado: action.payload }
+      if(action.payload.caso==="add") {
+        return { ...state, paisDetallado: action.payload.data }
+      }else{
+         return { ...state, paisDetallado: action.payload.data }
+      }
+      
 
     case "PAISES_FILTRADOS":
 
