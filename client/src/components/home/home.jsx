@@ -153,7 +153,8 @@ const Home = ({paises, valorPagina, paginado, getPaisesFiltrados,
                         continente={continente}
                         />
                 )
-            }):<h1>No se encontraron resultados</h1>:paisesFiltrados[0]?paisesFiltrados.slice(paginado, paginado+9).map(({id,nombre,img,continente}) => {
+            }):<h1>No se encontraron resultados</h1>:typeof paisesFiltrados[0] === "string"?<h1>{paisesFiltrados[0]}</h1>:
+                paisesFiltrados.slice(paginado, paginado+9).map(({id,nombre,img,continente}) => {
                 return (
                   
                         <HomeCard key={id}
@@ -163,7 +164,7 @@ const Home = ({paises, valorPagina, paginado, getPaisesFiltrados,
                         continente={continente}
                         />
                 )
-            }):<h1>No se encontraron resultados</h1>}
+            })}
             </div>
 
             

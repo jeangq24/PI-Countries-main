@@ -42,38 +42,39 @@
 }
 #hDos{
     margin: 5px 0px 5px 0px;
-    font-family: 'Grechen Fuemen', cursive;
-    color: white;
-    -webkit-text-stroke: 0.5px #000000;
-    font-size: 40px;
-}
-#hCuatro{
-    margin: 0px 0px 0px 0px;
-    font-family: 'Grechen Fuemen', cursive;
+    font-family: 'Scheherazade New', serif;
     color: white;
     -webkit-text-stroke: 0.5px #000000;
     font-size: 30px;
 }
+#hCuatro{
+    margin: 0px 0px 0px 0px;
+    font-family: 'Scheherazade New', serif;
+    color: white;
+    -webkit-text-stroke: 0.5px #000000;
+    font-size: 20px;
+}
 
 #hCinco{
     margin: 0px 0px 0px 0px;
-    font-family: 'Grechen Fuemen', cursive;
+    font-family: 'Scheherazade New', serif;
     color: white;
     -webkit-text-stroke: 0.5px #050505;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 #hSeis{
     margin: 0px 0px 0px 0px;
-    font-family: 'Grechen Fuemen', cursive;
+    font-family: 'Scheherazade New', serif;
     color: white;
     -webkit-text-stroke: 0.5px #000000;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 #pActividades{
     margin: 0px 0px 0px 0px;
-    font-family: 'Grechen Fuemen', cursive;
+    font-size: 13px;
+    font-family: 'Scheherazade New', serif;
     color: white;
     -webkit-text-stroke: 0.5px #ffffff;
 }

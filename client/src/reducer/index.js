@@ -33,10 +33,14 @@ function rootReducer(state = initialState, action) {
       switch (action.payload.caso) {
 
         case "continente":
+          let filtroC=state.paises.filter((elemento) => {
+            return elemento.continente === action.payload.value;
+          })
+          if(!filtroC[0]){
+            filtroC.push("No se econtraron paises con el continente seleccionado")
+          }
           return {
-            ...state, paisesFiltrados: state.paises.filter((elemento) => {
-              return elemento.continente === action.payload.value;
-            })
+            ...state, paisesFiltrados: filtroC
           }
 
         case "poblacionMayor":

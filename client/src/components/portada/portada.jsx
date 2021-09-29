@@ -6,9 +6,8 @@ import "./styles/portada.css";
 
 const Portada = ({ dataDB }) => {
   useEffect(() => {
-    dataDB();
-   
-  }, [dataDB]);
+    dataDB();  
+  }, []);
 
   return (
     <div id="portada">

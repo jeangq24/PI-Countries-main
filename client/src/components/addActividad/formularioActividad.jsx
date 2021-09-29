@@ -15,7 +15,7 @@ const FormularioActividad = ({getListaPaisesFormulario, paisesFormulario, resetP
     const [valorDuracion, setValorDuracion]= useState({duracion: null, medida: "Hora(s)", error: null});
     const [valorPaises, setValorPaises] = useState({paises:[], error: null})
     const [validacion, setValidacion] = useState({acces: false, error: null})
-    
+    const [precio, setPrecio] = useState(0)
     useEffect(()=>{
         setTimeout(() => {setValorPaises({...valorPaises, error: null})},2500)
     },[valorPaises.error])
@@ -122,6 +122,7 @@ const FormularioActividad = ({getListaPaisesFormulario, paisesFormulario, resetP
                     
                 }
                 let paquetePost={
+                    precio: precio,
                     nombre: valorNombre.nombre.toUpperCase(),
                     dificultad: valorDificultad.dificultad,
                     duracion: parseInt(valorDuracion.duracion),
@@ -177,13 +178,21 @@ const FormularioActividad = ({getListaPaisesFormulario, paisesFormulario, resetP
         setValidacion({acces: false, error: null})
         resetPaisesFormulario()
         getListaPaisDetalladoConActividades({caso: "reset"})
+        
     }
 
-
+    const handlePrecio = (event) => {
+        const {value} = event.target;
+        setPrecio(value);
+    }
     return (
         <div id="formularioActividad">
             {!validacion.acces?<>
             <div id="contenedorFormulaio"> 
+            <div>
+                <label>Precio</label>
+                <input value={precio} onChange={(e)=>handlePrecio(e)}></input>
+            </div>
             <div id="nombre">
                 <label >Nombre</label>
                 <input className={valorNombre.error?"inputFormularioError":"inputFormulario"} type="text" placeholder="Visita al museo"  value={valorNombre.nombre} onChange={(e)=>{handleNombre(e)}}/>

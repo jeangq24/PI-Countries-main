@@ -13,7 +13,8 @@ const DetalladoCard = ({id, nombre, img, continente, capital, subregion, area, p
     const [position, setPosition]= useState([0, 0])
 
     useEffect(async ()=>{
-        if(nombre.toLowerCase().includes("venezuela")){
+        if(nombre.toLowerCase().includes("venezuela") || nombre.toLowerCase().includes("holy see")
+        ){
             let resp = await axios.get(`https://api.mymappi.com/v2/geocoding/direct?apikey=84a34520-e568-4555-a492-93d3e38a693f&q=${nombre}&layers=country`)
             setPosition([resp.data.data[0].lat, resp.data.data[0].lon])
         }else{
@@ -76,23 +77,24 @@ const DetalladoCard = ({id, nombre, img, continente, capital, subregion, area, p
             </div>
             <div id="contenedorPaisesDetallados">
                 <div id="detalles">
-                    <h2 id="hDos">{nombre}</h2>
+                    <h2 id="hDos">{nombre.toUpperCase()}</h2>
                     <div id="imgDetalles" style={{backgroundImage: `url("${img}")`}}></div>
                     <h4 id="hCuatro">Continente {continente?continente:"No registra"}</h4>
                     <h4 id="hCuatro">Capital {capital?capital:"No registra"}</h4>
                     <h5 id="hCinco">Subregion {subregion?subregion:"No registra"}</h5>
                     <h6 id="hSeis">Area de {area?area.toLocaleString()+" km2":"No registra"}</h6>
                     <h6 id="hSeis">Poblacion de {poblacion.toLocaleString()+" habitantes(Apx)"}</h6>
-                    {actividades2[0]?<Link to="/actividades"><div id="contenedorActividades">{actividades2.map(({id, nombre, duracion, dificultad, temporada}, index)=>{
-                    console.log(index++)
+                    {actividades2[0]?<Link to="/actividades"><div id="contenedorActividades">{actividades2.map(({id, nombre, duracion, dificultad, temporada, precio}, index)=>{
+                    console.log(precio)
                     return (
                         
                         <div key={id} className="activiades">
                             <p id="pActividades">Actividad N° {index}</p>
-                            <p id="pActividades">Nombre: {nombre}</p>
+                            <p id="pActividades">{nombre}</p>
                             <p id="pActividades">Tiempo estimado: {duracion}</p>
                             <p id="pActividades">Dificultad: {dificultad.toLowerCase()}</p>
                             <p id="pActividades">Temporada: {temporada}</p>
+                            <p id="pActividades">Precio:{precio}</p> 
                         </div>    
                     )
                     })}</div></Link>:<h6 id="hSeis">Actividades:  No se han registrado actividades</h6>}

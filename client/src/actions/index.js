@@ -1,8 +1,9 @@
 export const dataDB = () => {
+
     return  (dispatch) => {
       fetch(`http://localhost:3001/cargaData`)
         .then((respuesta) => respuesta.json())
-        .then((data) => dispatch({ type: "dataDB", payload: data }))
+        .then((data) => dispatch({ type: "dataDB" }))
         .catch((e) => console.log(e));
     };
   };

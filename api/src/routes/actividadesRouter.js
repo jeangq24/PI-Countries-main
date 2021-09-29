@@ -5,9 +5,10 @@ const router = Router();
 
 router.post("/", async (req, res)=>{
     try {
-        const {nombre, dificultad, duracion, temporada, pais, medida} = req.body;
+        const {nombre, dificultad, duracion, temporada, pais, medida, precio} = req.body;
+        console.log(precio)
         const actividad= await Activity.create({
-            nombre, dificultad, duracion, temporada, medida
+            nombre, dificultad, duracion, temporada, medida, precio
         });
 
         for (let index = 0; index < pais.length; index++) {

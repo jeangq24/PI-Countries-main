@@ -31,7 +31,7 @@ const ActividadesCard = ({nombre, dificultad, duracion, temporada, countries, me
             <h6 className="hSeisActividades">{"Dificultad: "+X}</h6>
             <h6 className="hSeisActividades">{"Temporada: "+temporada}</h6>
             <div id="paisesActividades">{countries.map(({id, nombre, img}) => {
-                return <Link to="/detalles" onClick={()=>getListaPaisDetallado(id)}><div key={id}>
+                return <Link to="/detalles" onClick={()=>getListaPaisDetallado({caso: "add", value: id})}><div key={id}>
                     
                     <div id="imgActividades" style={{backgroundImage: `url("${img}")`}}>
                         <div id="filtroImgActividades"></div>

@@ -21,7 +21,7 @@ const PaisesParaFormulario = ({id, nombre, img, setValorPaises, valorPaises, get
     return (
         <div className="paisesFormulario" onClick={() => handlePaises()} style={{backgroundImage: `url("${img}")`}}>
             <div id="filtroPaisesFormulario">
-            <h6>{nombre}</h6>  
+            <h6 className="h6pais">{nombre.toUpperCase()}</h6>  
             </div>
         </div>
     )
