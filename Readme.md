@@ -25,5 +25,14 @@ Crear un proyecto individual como requisito de Soy Henry Bootcamp
       <li>DB_PASSWORD=passwordDePostgres</li>
       <li>DB_HOST=localhost (si ha configurado postgres en otro puerto debera especificarlo de la siguiente forma: localhost:puerto</li>
     </ul>
-  
+    <li>Debera instalar las dependecias necesarias para poder ejecutar el proyecto, en la carpeta PI-Countries-main debera abrir una terminal y ejecutar:</li>
+      <ul>
+        <li> npm install ./api</li>
+        <li> npm install ./client</li>
+      </ul>
+    <li> Ejecute en la terminal los siguiente comandos para poder visualizar el proyecto:
+      <ul>
+        <li>npm start ./api</li>
+        <li>npm start ./client</li>
+      </ul>
   </ul>
