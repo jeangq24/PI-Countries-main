@@ -1,0 +1,29 @@
+# Introduccion: 
+
+Crear un proyecto individual como requisito de Soy Henry Bootcamp
+
+# Objetivos del poryecto:
+
+  <ul>
+  <li>Construir una App utlizando React, Redux, Node y Sequelize.</li>
+  <li>Afirmar y conectar los conceptos aprendidos en la carrera.</li>
+  <li>Aprender mejores prácticas.</li>
+  <li>Aprender y practicar el workflow de GIT.</li>
+  <li>Usar y practicar testing.</li>
+  </ul>
+
+# ¿Como puedo ejecutar el proyecto en mi PC?
+  
+  <ul>
+  <li>Prviamente debera tener instalador y configurado postgreSQL, ademas debera crear una base de datos con el nombre de: "countries", dejo algunas referencias: 
+  <a href="https://www.postgresql.org/download/" target="_blank">Descargar postgreSQL</a></li>, <a href="https://www.todopostgresql.com/como-crear-base-de-datos-en-postgresql/" target="_blank">Crear base de datos en postgreSQL,</a></li>
+  <li>Descarga o clona el repositorio de github: <a href="https://github.com/jeangq24/PI-Countries-main.git" target="_blank"> https://github.com/jeangq24/PI-Countries-main.git</a>
+  <li>Una vez descargado el repositorio debera configurar los variables de entorno, para esto se debe dirigiir a la carpeta PI-Countries-main/api, una vez en
+  "api" cree un archivo con el siguiente nombre: ".env", posteriormente debemos editar ese archivo agregando lo siguiente</li>
+    <ul>
+      <li>DB_USER=usuariodepostgres</li>
+      <li>DB_PASSWORD=passwordDePostgres</li>
+      <li>DB_HOST=localhost (si ha configurado postgres en otro puerto debera especificarlo de la siguiente forma: localhost:puerto</li>
+    </ul>
+  
+  </ul>
