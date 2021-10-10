@@ -45,3 +45,5 @@ Este proyecto esta realizado con tecnologia como: HTML, CSS, REACT, REDUX, LEAFL
 
 *Adjunto video del funcionamiento del sistema: 
 
+<a href="https://youtu.be/pj9REeJMRHA" target="_blank">Video COUNTRIESAPP</a>
+![](https://github.com/jeangq24/PI-Countries-main/blob/master/Screenshot_2021-10-05_21_38_12.png)
