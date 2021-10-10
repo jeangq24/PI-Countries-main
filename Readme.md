@@ -36,3 +36,12 @@ Crear un proyecto individual como requisito de Soy Henry Bootcamp
         <li>npm start ./client</li>
       </ul>
   </ul>
+
+*Se abrira una pestaña en el navegador por deafult (se recomienda la vista el Mozilla Firefox de este proyecto) y podra interactual con el sistema.
+
+# Front-end 
+
+Este proyecto esta realizado con tecnologia como: HTML, CSS, REACT, REDUX, LEAFLET 
+
+*Adjunto video del funcionamiento del sistema: 
+
