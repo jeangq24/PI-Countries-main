@@ -41,9 +41,14 @@ Crear un proyecto individual como requisito de Soy Henry Bootcamp
 
 # Front-end 
 
-Este proyecto esta realizado con tecnologia como: HTML, CSS, REACT, REDUX, LEAFLET 
+Este proyecto esta realizado con tecnologias como: HTML, CSS, REACT, REDUX, LEAFLET 
 
 *Adjunto video del funcionamiento del sistema: 
 
 <a href="https://youtu.be/pj9REeJMRHA" target="_blank">Video COUNTRIESAPP</a>
 ![](https://github.com/jeangq24/PI-Countries-main/blob/master/Screenshot_2021-10-05_21_38_12.png)
+
+
+# Back-end: 
+
+Este proyecto esta realizado con tecnologias como: NODE.JS - Express para la configuracion de servidor, base de datos con PostgreSQL, para la minupulacion de la DB con el ORM Suquelize y la API <a href="www.restcountries.com" target="_blank">REST COUNTRIES</a> quien proporciona informacion al sistema.
