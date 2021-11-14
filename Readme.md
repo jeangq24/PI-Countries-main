@@ -12,6 +12,15 @@ Crear un proyecto individual como requisito de Soy Henry Bootcamp
   <li>Usar y practicar testing.</li>
   </ul>
 
+# ¿Puedo ver el proyecto desplegado en alguna parta?
+
+Si, desde aqui: 
+https://online-countries.vercel.app/
+
+# ¿Se adapta a los diferentes tamaños de pantalla?
+
+No, se recomienda ver desde un navegor de pc o "vista de escritorio".
+
 # ¿Como puedo ejecutar el proyecto en mi PC?
   
   <ul>
@@ -23,7 +32,7 @@ Crear un proyecto individual como requisito de Soy Henry Bootcamp
     <ul>
       <li>DB_USER=usuariodepostgres</li>
       <li>DB_PASSWORD=passwordDePostgres</li>
-      <li>DB_HOST=localhost (si ha configurado postgres en otro puerto debera especificarlo de la siguiente forma: localhost:puerto</li>
+      <li>DB_HOST=localhost (si ha configurado postgres en otro puerto debera especificarlo de la siguiente forma: localhost:puerto)</li>
     </ul>
     <li>Debera instalar las dependecias necesarias para poder ejecutar el proyecto, en la carpeta PI-Countries-main debera abrir una terminal y ejecutar:</li>
       <ul>
