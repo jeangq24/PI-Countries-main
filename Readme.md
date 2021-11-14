@@ -12,7 +12,7 @@ Crear un proyecto individual como requisito de Soy Henry Bootcamp
   <li>Usar y practicar testing.</li>
   </ul>
 
-# ¿Puedo ver el proyecto desplegado en alguna parta?
+# ¿Puedo ver el proyecto desplegado en alguna parte?
 
 Si, desde aqui: 
 https://online-countries.vercel.app/
